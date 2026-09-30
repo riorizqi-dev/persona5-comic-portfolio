@@ -2,6 +2,10 @@
 
 Interactive portfolio bergaya Persona 5 & Spider-Man Comic Theme, distrukturkan dengan arsitektur Model–View–Controller murni (Vanilla HTML5, CSS3, & JavaScript).
 
+## Live Demo
+- **Vercel (Primary)**: [https://persona5-style-portfolio.vercel.app](https://persona5-style-portfolio.vercel.app)
+- **GitHub Pages**: [https://riorizqi-dev.github.io/persona5-comic-portfolio](https://riorizqi-dev.github.io/persona5-comic-portfolio)
+
 ## Original Credits & Attribution
 - Template dasar & engine interaktif terinspirasi dari karya open-source **[persona5-style-portfolio](https://github.com/m-m-rahman/persona5-style-portfolio)** oleh [Meraj Rahman (@m-m-rahman)](https://github.com/m-m-rahman).
 - Diadaptasi, dimodifikasi, dan dikembangkan lebih lanjut oleh **Rio Rizqi Saputra (@riorizqi-dev)** bersama **Antigravity AI (Google DeepMind)** dengan tema palet Ryuuka Store (Deep Navy, Electric Blue, Cyan) dan manga Spider-Man action panels.
