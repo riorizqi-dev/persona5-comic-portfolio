@@ -46,6 +46,12 @@ const View = {
     el.textContent = "";
     [...text].forEach((c, i) => {
       const span = document.createElement("span");
+      if (c === " ") {
+        span.className = "ch-space";
+        span.innerHTML = "&nbsp;";
+        el.appendChild(span);
+        return;
+      }
       span.className = "ch display";
       span.textContent = c;
       const h = this.hash(text + i);
@@ -55,10 +61,12 @@ const View = {
       const t = `rotate(${rot}deg) scale(${scale}) translateY(${dy}px)`;
       span.style.setProperty("--t", t);
       span.style.transform = t;
-      const variant = (h >> 7) % 10;
+      const variant = (h >> 7) % 12;
       if (variant === 0) span.classList.add("box");
       else if (variant === 1) span.classList.add("boxw");
-      else if (variant === 2) span.classList.add("red");
+      else if (variant === 2 || variant === 3) span.classList.add("red");
+      else if (variant === 4) span.classList.add("cyan");
+      else if (variant === 5) span.classList.add("gold");
       el.appendChild(span);
     });
   },
@@ -118,7 +126,7 @@ const View = {
       a.innerHTML = `
         ${this.cardThumb(f.img)}
         <span class="lang" style="--lc:${f.color}">${f.tag}</span>
-        <h3>${f.live ? '<span class="live-dot"></span>' : ""}${this.splitTitle(f.title)}</h3>
+        <h3>${this.splitTitle(f.title)}</h3>
         <p>${f.desc}</p>
         <div class="meta"><span>${f.live ? "LIVE NOW" : "HIGHLIGHT"}</span><span class="go">${f.cta}</span></div>`;
       this.els.featGrid.appendChild(a);
