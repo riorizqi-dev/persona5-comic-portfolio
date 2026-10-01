@@ -1,60 +1,50 @@
-# Persona-Style Comic Portfolio — Rio Rizqi Saputra × Antigravity
+# Persona-Style Comic Portfolio — Rio Rizqi Saputra
 
-Interactive portfolio bergaya Persona 5 & Spider-Man Comic Theme, distrukturkan dengan arsitektur Model–View–Controller murni (Vanilla HTML5, CSS3, & JavaScript).
+An interactive personal portfolio for Rio Rizqi Saputra ([@riorizqi-dev](https://github.com/riorizqi-dev)). It's styled like the Persona 5 menus and uses Spider-Man comic action panels. The color palette is Deep Navy, Electric Blue and Cyan.
 
 ## Live Demo
 - **Vercel (Primary)**: [https://persona5-style-portfolio.vercel.app](https://persona5-style-portfolio.vercel.app)
 - **GitHub Pages**: [https://riorizqi-dev.github.io/persona5-comic-portfolio](https://riorizqi-dev.github.io/persona5-comic-portfolio)
 
-## Original Credits & Attribution
-- Template dasar & engine interaktif terinspirasi dari karya open-source **[persona5-style-portfolio](https://github.com/m-m-rahman/persona5-style-portfolio)** oleh [Meraj Rahman (@m-m-rahman)](https://github.com/m-m-rahman).
-- Diadaptasi, dimodifikasi, dan dikembangkan lebih lanjut oleh **Rio Rizqi Saputra (@riorizqi-dev)** bersama **Antigravity AI (Google DeepMind)** dengan tema palet Ryuuka Store (Deep Navy, Electric Blue, Cyan) dan manga Spider-Man action panels.
+## Tech Stack
 
-## Structure
+Plain HTML5, CSS3 and JavaScript. There's no framework and no build step. The code follows a Model–View–Controller split:
 
 ```
-├── index.html            View skeleton — markup only, no logic or styles
+├── index.html            View skeleton (markup only)
 ├── css/
-│   └── style.css         All styling (theme colors in :root at the top)
+│   └── style.css         All styling (theme colors in :root)
 ├── js/
-│   ├── model.js          DATA — projects, skills, GitHub fetch, app state
-│   ├── view.js           DOM — rendering, ransom lettering, wipe, cursor, sound
-│   └── controller.js     EVENTS — keyboard/mouse input, navigation logic
-└── assets/
-    ├── sfx/select.mp3    Menu sound (plays on select/confirm)
-    ├── cursors/          Animated cursor sprite strips (30 frames each)
-    ├── menus/            per-screen backgrounds: home.jpg, skills.jpg, about.jpg,
-    │                     contact.jpg (included) — add projects.jpg to complete the set
-    ├── cv/               your downloadable CV (linked from About + Contact)
-    ├── hero.png          ← optional: extra art layered on the home screen
-    ├── me.jpg            ← add: your photo for the About polaroid
-    └── projects/         ← add: card thumbnails
-        ├── bsl.png, medcnn.png, gesture.png, rapidcheck.png   (featured)
-        └── <RepoName>.png  (auto-matched to GitHub repos by exact name)
+│   ├── model.js          Data and state: featured projects, skills, GitHub repo fetch
+│   ├── view.js           DOM rendering, ransom lettering, screen wipe, cursor, sound
+│   └── controller.js     Keyboard/mouse input, navigation, contact form
+└── assets/               Menu backgrounds, project thumbnails, cursors, sound effects
 ```
 
-Missing images hide themselves — no broken icons.
+The Projects screen also loads public repos from the GitHub API for `riorizqi-dev`. If the API can't be reached, it shows a built-in fallback list. The contact form sends messages through formsubmit.co, with a mailto link as a fallback.
 
-## Editing content
+## Featured Projects
 
-Everything you'd normally want to change lives in **js/model.js**:
-featured projects, skill bars, thumbnail overrides, your GitHub username.
-Bio and contact links are plain HTML in **index.html**.
-Colors are CSS variables at the top of **css/style.css**.
+- **Ryuuka-Store**: a platform for managing and selling premium app subscriptions
+- **RuangLepas**: a web app for posting anonymous vents ([live](https://ruanglepas.ryuuka.web.id/))
+- **TaskTrack**: a native Android task manager built with Kotlin
+- **StudentToolsHub**: a set of 15 productivity tools for students, written in TypeScript
+- **VANTOR**: a cinematic landing page for a luxury watch brand (Next.js 15 + GSAP)
+- **GhostMode**: an Android utility built on a Kotlin foreground service
 
-## Run locally
+## Run Locally
 
 ```
 python3 -m http.server
 ```
-then open http://localhost:8000 — opening index.html directly (file://)
-blocks the audio fetch and GitHub API in most browsers.
 
-## Deploy
-
-Push the whole folder to a GitHub repo, enable Pages
-(Settings → Pages → Deploy from branch → main → / root). Done.
+Then open http://localhost:8000. You can also open `index.html` directly, but under `file://` most browsers block the audio fetch and the GitHub API call. A static server is recommended.
 
 ## Controls
 
 ↑ / ↓ select · Enter confirm · Esc back · click the name to go home
+
+## Credits
+
+- Based on the open-source template **[persona5-style-portfolio](https://github.com/m-m-rahman/persona5-style-portfolio)** by [Meraj Rahman (@m-m-rahman)](https://github.com/m-m-rahman). It provides the base layout and the interactive engine.
+- Adapted and customized by **Rio Rizqi Saputra ([@riorizqi-dev](https://github.com/riorizqi-dev))** with help from Antigravity AI (Google DeepMind).
